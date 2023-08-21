@@ -30,7 +30,7 @@ function playRound(playerSeclection, computerSelection) {
     } else if(playerSeclection === "scissors" && computerSelection === "paper") {
         return [`You won, Scissors beats Paper :)` , 'player']
     } else {
-        return [`What the heck did you pick! :o`, 'draw']
+        return [`What the heck did you pick! :o`, 'invalid']
         }
 }
 
@@ -47,6 +47,7 @@ function game() {
 
     let playerScore = 0;
     let computerScore = 0;
+    let round = 0
 
     for(i=0; i<5; i++) {
         let playerChoice = prompt("What is your play? (Rock/Paper/Scissors)");
@@ -58,8 +59,14 @@ function game() {
         
         if (result[1] === 'comp') {
             computerScore += 1
+            round += 1
         } else if (result[1] === 'player') {
             playerScore += 1
+            round += 1
+        } else if(result[1] === 'draw') {
+            round += 1
+        } else {
+            i = round - 1
         }
 
         alert(result[0]);
