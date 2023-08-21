@@ -69,7 +69,7 @@ function game() {
         alert(`The game ended in a ${playerScore}-${playerScore} draw`)
     } else if (playerScore > computerScore) {
         alert(`Congratulations! You won ${playerScore}-${computerScore}`)
-    } else {
+    } else if (computerScore > playerScore){
         alert(`You lost ${playerScore}-${computerScore}. Better luck next time`)
     }
 
