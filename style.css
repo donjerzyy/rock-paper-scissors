@@ -13,6 +13,17 @@ body {
     height: 100vh;
 }
 
+.game-state {
+    border: 1px solid;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.score {
+    align-self: center;
+}
 
 .game-options {
     display: flex;

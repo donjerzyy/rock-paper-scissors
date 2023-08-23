@@ -47,18 +47,22 @@ function game() {
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
+const outcome = document.querySelector('.outcome');
 
 let result;
 rockButton.addEventListener('click', ()=> {
     result = playRound('rock', getComputerChoice());
+    outcome.textContent = result[0];
 });
 
 paperButton.addEventListener('click', ()=> {
-    result = playRound('rock', getComputerChoice());
+    result = playRound('paper', getComputerChoice());
+    outcome.textContent = result[0];
 });
 
 scissorsButton.addEventListener('click', ()=> {
-    result = playRound('rock', getComputerChoice());
+    result = playRound('scissors', getComputerChoice());
+    outcome.textContent = result[0];
 });
 
 
