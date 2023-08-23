@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.game-options {
+    display: flex;
+    gap: 50px;
+    padding-top: 20px;
+}
+
+.game-prompt {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-prompt-text {
+    justify-self: center;
+    align-self: center;
+    width: fit-content;
+}
+
+.rock, 
+.paper,
+.scissors {
+    padding: 10px;
+    width: 100px;
+}
+
+
