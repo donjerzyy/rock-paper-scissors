@@ -47,39 +47,6 @@ function game() {
 
     let playerScore = 0;
     let computerScore = 0;
-    let round = 0
-
-    for(i=0; i<5; i++) {
-        let playerChoice = prompt("What is your play? (Rock/Paper/Scissors)");
-        let computerChoice = getComputerChoice();
-        let result = playRound(
-           playerChoice.toLocaleLowerCase(),
-            computerChoice
-        );
-        
-        if (result[1] === 'comp') {
-            computerScore += 1
-            round += 1
-        } else if (result[1] === 'player') {
-            playerScore += 1
-            round += 1
-        } else if(result[1] === 'draw') {
-            round += 1
-        } else {
-            i = round - 1
-        }
-
-        alert(result[0]);
-    }
-
-    if(playerScore === computerScore) {
-        alert(`The game ended in a ${playerScore}-${playerScore} draw`)
-    } else if (playerScore > computerScore) {
-        alert(`Congratulations! You won ${playerScore}-${computerScore}`)
-    } else if (computerScore > playerScore){
-        alert(`You lost ${playerScore}-${computerScore}. Better luck next time`)
-    }
-
 }
 
 game();
