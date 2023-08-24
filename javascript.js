@@ -1,3 +1,12 @@
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorsButton = document.querySelector('.scissors');
+const outcome = document.querySelector('.outcome');
+const score = document.querySelector('.score')
+let playerScore = 0;
+let computerScore = 0;
+let result;
+
 
 function getComputerChoice() {
     const options = ['rock', 'paper', 'scissors' ];
@@ -35,36 +44,37 @@ function playRound(playerSeclection, computerSelection) {
 }
 
 
-function game() {
+function game(playerChoice) {
+    result = playRound(playerChoice, getComputerChoice())
+    if(result[1]==='comp') {
+        computerScore +=1;
+    }else if(result[1]==='player') {
+        playerScore +=1
+    }
 
-    let playerScore = 0;
-    let computerScore = 0;
-
+    if (playerScore>=5 || computerScore >=5) {
+        if(playerScore > computerScore) {
+            score.textContent = "Congratulations you won!";
+        } else {
+            score.textContent = "You lost. Better luck next time";
+        }
+        outcome.textContent = "Refresh to play again";
+    } else {
+        score.textContent = `You : ${playerScore} - ${computerScore} : The Machine`;
+        outcome.textContent = result[0]; 
+    }      
 }
 
 
 
-const rockButton = document.querySelector('.rock');
-const paperButton = document.querySelector('.paper');
-const scissorsButton = document.querySelector('.scissors');
-const outcome = document.querySelector('.outcome');
+    rockButton.addEventListener('click', ()=> {
+        game('rock');
+    });
 
-let result;
-rockButton.addEventListener('click', ()=> {
-    result = playRound('rock', getComputerChoice());
-    outcome.textContent = result[0];
-});
+    paperButton.addEventListener('click', ()=> {
+        game('paper');
+    });
 
-paperButton.addEventListener('click', ()=> {
-    result = playRound('paper', getComputerChoice());
-    outcome.textContent = result[0];
-});
-
-scissorsButton.addEventListener('click', ()=> {
-    result = playRound('scissors', getComputerChoice());
-    outcome.textContent = result[0];
-});
-
-
-
-
+    scissorsButton.addEventListener('click', ()=> {
+        game('scissors');
+    });
